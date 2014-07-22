@@ -48,7 +48,7 @@ var app = {
             if(result.cancelled) {
                 alert("Failed to scan the barcode.\n" + "Please check your system camera.");
             } else {
-                window.location="http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format;
+                alert("http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format);
             }
 
         }, function (error) {
