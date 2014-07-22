@@ -34,8 +34,6 @@ var app = {
     // `load`, `deviceready`, `offline`, and `online`.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('encode').addEventListener('click', this.encode, false);
     },
 
     // deviceready Event Handler
@@ -48,6 +46,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+        /*
         function foobar_cont(){
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
             scanner.scan( function (result) {
@@ -64,6 +63,7 @@ var app = {
             console.log("finished.");
         }
         sleep(3000, foobar_cont);
+        */
     }
 
 };
