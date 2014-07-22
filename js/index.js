@@ -45,26 +45,11 @@ var app = {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) {
+            console.log(result);
             if(result.cancelled) {
                 alert("Failed to scan the barcode.\n" + "Please check your system camera.");
             } else {
                 alert("http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format);
-            }
-
-        }, function (error) {
-            alert("Failed to scan the barcode.\n" + "Please check your system camera. Error: " + error);
-        } );
-    },
-
-    scan: function() {
-
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        scanner.scan( function (result) { 
-            if(result.cancelled) {
-                alert("Failed to scan the barcode.\n" + "Please check your system camera.");
-            } else {
-                window.location="http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format;
             }
 
         }, function (error) {
