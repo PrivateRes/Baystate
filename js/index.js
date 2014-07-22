@@ -43,6 +43,7 @@ var app = {
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        sleep(2);
         alert(1);
         scanner.scan( function (result) {
             alert(result);
@@ -55,6 +56,7 @@ var app = {
         }, function (error) {
             alert("Failed to scan the barcode.\n" + "Please check your system camera. Error: " + error);
         } );
+
     }
 
 };
