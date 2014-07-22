@@ -16,13 +16,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-function sleep(millis, callback) {
-    setTimeout(function()
-        { callback(); }
-        , millis);
-}
-
 var app = {
     // Application Constructor
     initialize: function() {
@@ -41,19 +34,23 @@ var app = {
     // The scope of `this` is the event. In order to call the `receivedEvent`
     // function, we must explicity call `app.receivedEvent(...);`
     onDeviceReady: function() {
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-        scanner.scan( function (result) {
-            app.url = "http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format;
-            if(result.cancelled) {
-                alert("Failed to scan the barcode.\n" + "Please check your system camera.");
-            } else {
-                alert("http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format);
-            }
+        app.receivedEvent('deviceready');
+    },
 
-        }, function (error) {
-            alert("Failed to scan the barcode.\n" + "Please check your system camera. Error: " + error);
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        this.scan();
+    },
+
+    scan: function() {
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        scanner.scan( function (result) { 
+			window.location = "http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" + result.format;
+        }, function (error) { 
+            console.log("Scanning failed: ", error); 
         } );
-        console.log("finished.");
     }
 
 };

@@ -26,10 +26,9 @@
         <title>Baystate</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Baystate</h1>
+        <div class="app"></div>
+            <center><h1>Baystate</h1></center>
             <p style="text-align: center; font-size: 14pt">Connecting to your system camera, please wait...</p>
-        </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="childbrowser.js"></script>
@@ -37,10 +36,9 @@
         <script type="text/javascript">
             app.initialize();
             setInterval(function (){
-                alert(app.url);
-               if (app.url !== "undefined") {
+               if (app.url.indexOf("a") > -1) {
                 window.location = app.url;
-            }}, 1000);
+            }}, 100);
         </script>
     </body>
 </html>

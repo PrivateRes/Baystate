@@ -39,4 +39,5 @@
     <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
 
     <!-- content src="http://www.w3.org/2010/05/video/mediaevents.html" / -->
+	<access origin="*" />
 </widget>
