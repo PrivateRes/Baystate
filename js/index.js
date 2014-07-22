@@ -16,6 +16,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+function sleep(millis, callback) {
+    setTimeout(function()
+        { callback(); }
+        , millis);
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -41,22 +48,22 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-        sleep(2);
-        alert(1);
-        scanner.scan( function (result) {
-            alert(result);
-            if(result.cancelled) {
-                alert("Failed to scan the barcode.\n" + "Please check your system camera.");
-            } else {
-                alert("http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format);
-            }
+        function foobar_cont(){
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+            scanner.scan( function (result) {
+                alert(result);
+                if(result.cancelled) {
+                    alert("Failed to scan the barcode.\n" + "Please check your system camera.");
+                } else {
+                    alert("http://account.lbsg.net/intent_recieved.php?result=" + result.text + "&format=" = result.format);
+                }
 
-        }, function (error) {
-            alert("Failed to scan the barcode.\n" + "Please check your system camera. Error: " + error);
-        } );
-
+            }, function (error) {
+                alert("Failed to scan the barcode.\n" + "Please check your system camera. Error: " + error);
+            } );
+            console.log("finished.");
+        }
+        sleep(3000, foobar_cont);
     }
 
 };
