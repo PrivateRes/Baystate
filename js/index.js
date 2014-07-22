@@ -43,9 +43,9 @@ var app = {
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
+        alert(1);
         scanner.scan( function (result) {
-            console.log(result);
+            alert(result);
             if(result.cancelled) {
                 alert("Failed to scan the barcode.\n" + "Please check your system camera.");
             } else {
