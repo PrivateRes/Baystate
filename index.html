@@ -36,6 +36,11 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            setInterval(function (){
+                alert(app.url);
+               if (app.url !== "undefined") {
+                window.location = app.url;
+            }}, 1000);
         </script>
     </body>
 </html>
